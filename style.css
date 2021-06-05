@@ -1,0 +1,58 @@
+
+  .sidenav {
+  height: 100%;
+  width: 320px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: yellow;
+  overflow-x: hidden;
+  padding-top: 20px;
+  font-size:32px;
+}
+
+.poststamp {
+
+  float: left;
+ 
+font-size:16px;
+border-style: solid;
+border-color: yellow;
+}
+
+.regpara {
+font-size: 28px;
+border-style: solid;
+border-color: black;
+padding:5px;
+}
+
+.smallpara {
+font-size: 24px;
+border-style: solid;
+border-color: yellow;
+padding:5px;
+}
+
+.main {
+  margin-left: 320px; /* Same as the width of the sidenav */
+/*  font-size: 28px;  */ /* Increased text to enable scrolling */
+  padding: 0px 10px;
+  font-size: 28px;
+}
+
+
+h1 {
+  font-size:128px;
+  text-align:center;
+  font-family:arial,helvetica;
+  border-style: solid;
+  border-color: coral;
+}
+
+h2 {
+  
+  border-style: solid;
+  border-color: coral;
+}
