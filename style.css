@@ -6,7 +6,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: yellow;
+  background-color: black;
   overflow-x: hidden;
   padding-top: 20px;
   font-size:32px;
@@ -25,14 +25,14 @@ border-color: yellow;
 font-size: 28px;
 border-style: solid;
 border-color: black;
-padding:5px;
+padding:2px;
 }
 
 .smallpara {
-font-size: 24px;
+font-size: 22px;
 border-style: solid;
 border-color: yellow;
-padding:5px;
+padding:2px;
 }
 
 .main {
@@ -44,6 +44,7 @@ padding:5px;
 
 
 h1 {
+
   font-size:128px;
   text-align:center;
   font-family:arial,helvetica;
@@ -52,7 +53,15 @@ h1 {
 }
 
 h2 {
-  
+  font-size:26px;
+  border-style: solid;
+  border-color: blue;
+  color:green;
+}
+
+h3 {
+  font-size: 18px;
   border-style: solid;
   border-color: coral;
+  color:violet;
 }
