@@ -9,7 +9,7 @@
 	
 	--header-bg-color:#230523;
 	--header-font-color:#f7a8c5;
-	--header-border-color:blue;
+	--header-border-color:#82042c;
 	--header-padding: 0%;
 	--header-border-width: var(--banner-border-width);
 		
@@ -32,11 +32,129 @@
 	}
 	
 body {
-	background-color: var(--body-color);
+/*	background-color: var(--body-color); */
 
-background: linear-gradient(315deg,#f0138c,rgba(0,0,0,0.8),rgba(31,255,121,0.9));
+/*	background: linear-gradient(315deg,#f0138c,rgba(0,0,0,0.8),rgba(31,150,64,0.9)); */
+
+
 	}
-	
+
+  #back-rotate {
+   position:fixed;
+  top:0;
+  left:0;
+    
+  width:100%;
+  height:100%;
+ 
+   animation-name:back-rotate;
+   animation-duration:900ms;
+   animation-iteration-count:infinite;
+   }
+   
+   @keyframes back-rotate {
+   0% {
+   background:linear-gradient(337.5deg,orange,coral,#850415,coral,orange);
+   }
+   12.5% { 
+   background:linear-gradient(292.5deg,orange,coral,purple,coral,orange);
+   }
+   25% {
+   background:linear-gradient(247.5deg,orange,coral,#850415,coral,orange);
+   }
+   37.5% {
+   background:linear-gradient(202.5deg,orange,coral,purple,coral,orange);
+   }
+   50% {
+   background:linear-gradient(157.5deg,orange,coral,#850415,coral,orange);
+   }
+   62.5% {
+   background:linear-gradient(112.5deg,orange,coral,purple,coral,orange);
+   }
+   75% {
+   background:linear-gradient(67.5deg,orange,coral,#850415,coral,orange);
+   }
+   87.5% {
+   background:linear-gradient(22.5deg,orange,coral,purple,coral,orange);
+   }
+   100% {
+   background:linear-gradient(337.5deg,orange,coral,#850415,coral,orange);
+   }
+   }
+   
+  #color-rotate {
+  position:fixed;
+  top:0;
+  left:0;
+  
+  animation-name:color-rotate;
+  animation-duration:700ms;
+  animation-iteration-count:infinite;
+  
+  width:100%;
+  height:100%;
+  
+  opacity:0.75;
+  }
+  
+  @keyframes color-rotate {
+  0% {
+  background: linear-gradient(0deg,#f0138c,rgba(0,0,0,0.5),rgba(31,255,121,0.9));
+  }
+  12.5% {
+  background: linear-gradient(45deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  25% {
+  background: linear-gradient(90deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  37.5% {
+  background: linear-gradient(135deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  50% {
+  background: linear-gradient(180deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  62.5% {
+  background: linear-gradient(225deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  75% {
+  background: linear-gradient(270deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  87.5% {
+  background: linear-gradient(315deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  100% {
+  background: linear-gradient(360deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
+  }
+  }
+  #colorin {
+  position:fixed;
+  top:0;
+  left:0;
+  
+  animation-name:color-fade-in;
+  animation-duration:4s;
+  animation-fill-mode:forwards;
+  width:100%;
+  height:100%
+  	}
+  @keyframes color-fade-in {
+  0% {
+  opacity:1;
+  background-color:black;
+  }
+  40% {
+  background-color:black;
+  opacity:1;
+  }
+  65% {
+  opacity:0.8;
+  background: linear-gradient(315deg,rgba(31,255,121,0.9),rgba(0,0,0,0.8),#f0138c);
+  }
+  99% {
+  opacity:0;
+  background: linear-gradient(315deg,#f0138c,rgba(0,0,0,0.8),rgba(31,255,121,0.9));
+  }
+  }
 	
   .sidenav {
   animation-name:content-delay;
@@ -144,7 +262,7 @@ animation-duration: 3s;
 0% {
 opacity:0;
 }
-98% {
+90% {
 opacity:0;
 }
 100% {
@@ -156,7 +274,7 @@ opacity:1;
 #frame-image {
 
 animation-name: img-delay;
-animation-duration: 3s;
+animation-duration: 4s;
 
 border-style:solid;
 border-color:var(--banner-border-color);
@@ -190,24 +308,37 @@ top:-100px;
 left:42%;
 
   width:150px;
-  background-color:#ffffff;
+ /* background-color:#ffffff; */
   border-radius:50%;
-   border-color: #ffffff;
+ /*  border-color: #ffffff; */
   }
 
 @keyframes nova {
   0% {
-opacity:1;
+opacity:0;
   box-shadow: 0 0 20px 100px #ffffff;
-  border-color: #000000;
+ /* border-color: #000000; */
+ background:#ffffff;
   } 
+  10% {
+  opacity:0;
+  }
   20% {
+  opacity:1;
+  background:#ffffff;
   box-shadow: 0 0 5000px 500px #ffffff;
  
   }
-  40% {
-  
+  25% {
+  opacity:1;
+  background:#ffffff;
   }
+  85% {
+  opacity:0.3;
+  /*background:linear-gradient(180deg,black,orange);*/
+   background:linear-gradient(315deg,#f0138c,rgba(31,255,121,1)); 
+  }
+  
   90% {
   box-shadow: 0 0 150px 100px #ffffff;
  
@@ -238,6 +369,8 @@ transform: scale(1.2);
 
 .rose {
 
+animation-name:content-delay;
+animation-duration:1.5s;
 
 position: fixed;
 top:10%;
