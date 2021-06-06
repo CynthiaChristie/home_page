@@ -215,6 +215,8 @@ background: linear-gradient(45deg,#17020f,#1a0e05,#021c0d);
   
 }
 
+/* deprecated
+
 .stamp-spacer {
 
 animation-name:content-delay;
@@ -222,10 +224,12 @@ animation-duration:2s;
 
 float: left;
 width: 140;
-border-color:rgba(0,0,0,0); /* var(--para-bg-color); */
+border-color:rgba(0,0,0,0);  
 border-width:var(--spacer-width);
 border-style:solid;
 }
+
+*/
 
 /* deprecated
 .border-fixer {
@@ -238,6 +242,9 @@ border-width: var(--para-border-width) 0px 0px var(--para-border-width);
 
 .poststamp {
 
+animation-name:content-delay;
+animation-duration:2s;
+
   float: left;
  
 font-size:16px;
@@ -245,8 +252,8 @@ border-style: solid;
 border-color: var(--para-border-color);
 color: var(--para-font-color);
 
-background-color: rgba(0,0,0,0);
-padding: 5px;
+/* background-color: rgba(0,0,0,0); */
+padding: 2px;
 text-align:center;
 }
 
