@@ -1,5 +1,17 @@
+
+
+/*
+** Various global
+*/
+
 :root {
-	--body-color: violet;
+
+/*
+** Large name banner (uses h1 tags )
+*/	
+
+	--link-new:#cc2222;
+	--link-visited:#950b16;
 	
 	--banner-bg-color:#280317;
 	--banner-font-color:#f7a8c5;
@@ -7,125 +19,154 @@
 	--banner-padding: 0%;
 	--banner-border-width: 3px;
 	
+/*
+** "Mission Statement" banner ( uses h2 tags )
+*/
 	--header-bg-color:#230523;
 	--header-font-color:#f7a8c5;
 	--header-border-color:#82042c;
 	--header-padding: 0%;
 	--header-border-width: var(--banner-border-width);
-		
+/*
+**
+*/		
 	--sidebar-bg-color:#17020f;
 	--sidebar-font-color:violet;
 	--sidebar-border-color:coral;
 	--sidebar-padding: 0%;
 	--sidebar-border-width: var(--banner-border-width);
-	
+
+/*
+** Used by class regpara, or the "Articles" textblock.
+*/
+
 	--para-border-color:coral;
 	--para-bg-color: rgba(140,15,109,0.7);
 	--para-font-color: #ffbcff;
 	--para-padding: 5px;
 	--para-border-width: var(--banner-border-width);
-	
-	--spacer-width: 0px 10px 10px 0px;
-	 
+
+/*
+** Width of the Links sidebar/main elements.  Should be modified together and accordingly.
+*/		 
 	 --sidebar-size: 25%;
-	 
 	 --main-size: 75%;
 	
 	}
 	
-	#vortex {
-	   position:fixed;
-  		top:0;
-  		left:0;
-    		
-    		width:100%;
-    		height:100%;
-    	
-    
-    		opacity 0;
-    		
-    		animation-name: vortex-stretcher;
-    		animation-duration: 3s;
-    		animation-fill-mode: forwards; 
-    	
-    		z-index:0; 
-    		
-    		}
-    		
-    	@keyframes vortex-stretcher {
-    	95% {
-    	opacity:0;
-    	}
-    	100% {
-    	opacity:1;
-    	}
-    	}
-    	
-body {
-/*	background-color: var(--body-color); */
-
-/*	background: linear-gradient(315deg,#f0138c,rgba(0,0,0,0.8),rgba(31,150,64,0.9)); */
+/**
+***
+*** CODE BEGINS
+***
+**/
 
 
-	}
+/*
+** The long first part of the code is all for the animations.  Search for "Web Content"
+** to find the part for the actual text formatting.
+*/
 
-  #back-rotate {
-   position:fixed;
+/*
+** nova-anim: The introductory animation of a fuzzy circular explosion and collapse.
+*/
+
+#nova-anim {
+
+  animation-name: nova;
+  animation-duration: 2s;
+
+  position: relative;
+  top:-100px;
+  left:42%;
+
+  z-index:2;
+
+  width:150px;
+
+  border-radius:50%;
+ 
+} /* #nova-anim */
+
+@keyframes nova {
+  0% {
+  opacity:0;
+  box-shadow: 0 0 20px 100px #ffffff;
+  } 
+  10% {
+  opacity:0;
+  }
+  20% {
+  opacity:1;
+  box-shadow: 0 0 5000px 500px #ffffff;
+  }
+  25% {
+  opacity:1;
+  }
+  85% {
+  opacity:0.3;
+  background:linear-gradient(315deg,#f0138c,rgba(31,255,121,1)); 
+  }
+  90% {
+  box-shadow: 0 0 150px 100px #ffffff;
+  }
+  99% {
+  box-shadow: 0 0 15px 10px #ffffff;
+  }
+  100% {
+  opacity:0;
+  }
+} /* keyframes nova-anim */
+
+
+/*
+** Vortex - This is the spinning background colors. The vortex id exists to group
+** together two subcomponents below and fade them in together.
+*/
+
+#vortex {
+
+  position:fixed;
   top:0;
-  right:0;
-    
-    z-index:1; 
-    
-    
-  width:var(--main-size);
+  left:0;
+    		
+  width:100%;
   height:100%;
- 
-   animation-name:back-rotate;
-   animation-duration:900ms;
-   animation-iteration-count:infinite;
-   animation-timing-function:linear;
-   }
+    
+  opacity 0;
+    		
+  animation-name: vortex-fade-in;
+  animation-duration: 3s;
+  animation-fill-mode: forwards; 
+    	
+  z-index:0; 
+    		
+}
+    		
+@keyframes vortex-fade-in {
+95% {
+  opacity:0;
+}
+100% {
+  opacity:1;
+}
+} /* keyframes vortex-fade-in */
    
-   @keyframes back-rotate {
-   0% {
-   background:linear-gradient(7.5089deg,orange,coral,#850415,coral,orange);
-   }
-   12.5% { 
-   background:linear-gradient(322.5089deg,orange,coral,purple,coral,orange);
-   }
-   25% {
-   background:linear-gradient(277.5089deg,orange,coral,#850415,coral,orange);
-   }
-   37.5% {
-   background:linear-gradient(232.5089deg,orange,coral,purple,coral,orange);
-   }
-   50% {
-   background:linear-gradient(187.5089deg,orange,coral,#850415,coral,orange);
-   }
-   62.5% {
-   background:linear-gradient(142.5089deg,orange,coral,purple,coral,orange);
-   }
-   75% {
-   background:linear-gradient(97.5089deg,orange,coral,#850415,coral,orange);
-   }
-   87.5% {
-   background:linear-gradient(52.5089deg,orange,coral,purple,coral,orange);
-   }
-   100% {
-   background:linear-gradient(7.5089deg,orange,coral,#850415,coral,orange);
-   }
-   }
-   
-  #color-rotate {
+
+
+
+/*
+** color-rotate: First vortex component. Spin a slightly transparent purple/green
+** color gradient around in a circle clockwise.
+*/	
+
+#color-rotate {
  
-  z-index:1; 
-  
+  z-index:1;  
   
   position:fixed;
   top:0;
   right:0;
    
- 
   animation-name:color-rotate;
   animation-duration:700ms;
   animation-iteration-count:infinite;
@@ -135,7 +176,8 @@ body {
   height:100%;
   
   opacity:0.75;
-  }
+
+  } /* color-rotate */
   
   @keyframes color-rotate {
   0% {
@@ -165,21 +207,92 @@ body {
   100% {
   background: linear-gradient(30.0089deg,#f0138c,rgba(0,0,0,0.5)),rgba(31,255,121,0.9));
   }
+  } /* keyframes color-rotate */
+  
+
+
+
+
+/*
+** back-rotate: The other vortex component.  Spin a different color gradient the other way,
+** counterclockwise, offset from the first one 22.5 degrees.
+*/
+#back-rotate {
+
+  position:fixed;
+  top:0;
+  right:0;
+    
+  z-index:1; 
+       
+  width:var(--main-size);
+  height:100%;
+ 
+  animation-name:back-rotate;
+  animation-duration:900ms;
+  animation-iteration-count:infinite;
+  animation-timing-function:linear;
+
+} /* #back-rotate */
+   
+  @keyframes back-rotate {
+  0% {
+  background:linear-gradient(7.5089deg,orange,coral,#850415,coral,orange);
   }
-  #colorin {
+  12.5% { 
+  background:linear-gradient(322.5089deg,orange,coral,purple,coral,orange);
+  }
+  25% {
+  background:linear-gradient(277.5089deg,orange,coral,#850415,coral,orange);
+  }
+  37.5% {
+  background:linear-gradient(232.5089deg,orange,coral,purple,coral,orange);
+  }
+  50% {
+  background:linear-gradient(187.5089deg,orange,coral,#850415,coral,orange);
+  }
+  62.5% {
+  background:linear-gradient(142.5089deg,orange,coral,purple,coral,orange);
+  }
+  75% {
+  background:linear-gradient(97.5089deg,orange,coral,#850415,coral,orange);
+  }
+  87.5% {
+  background:linear-gradient(52.5089deg,orange,coral,purple,coral,orange);
+  }
+  100% {
+  background:linear-gradient(7.5089deg,orange,coral,#850415,coral,orange);
+  }
+} /* keyframes back-rotate */
+  
+
+
+
+
+
+/*
+** #colorin - This is the part that sets the initial background to black for the nova
+** animation, and then fades in and out a green/purple color gradient as that animation plays 
+** out.
+*/
+#colorin {
+
   position:fixed;
   top:0;
   left:0;
   
   z-index:2;
   
-  animation-name:color-fade-in;
+  animation-name:color-in;
   animation-duration:4s;
   animation-fill-mode:forwards;
+
   width:100%;
   height:100%
-  	}
-  @keyframes color-fade-in {
+
+} /* color-in */
+
+@keyframes color-in {
   0% {
   opacity:1;
   background-color:black;
@@ -196,148 +309,71 @@ body {
   opacity:0;
   background: linear-gradient(315deg,#f0138c,rgba(0,0,0,0.8),rgba(31,255,121,0.9));
   }
-  }
-	
-  .sidenav {
-  animation-name:content-delay;
-  animation-duration:2s;
-  height: 100%;
-  width: var(--sidebar-size);
-  position: fixed;
-  z-index: 2;
-  top: 0;
-  left: 0;
-/*  background-color: var(--sidebar-bg-color);*/
-background: linear-gradient(45deg,#17020f,#1a0e05,#021c0d);
-  overflow-x: hidden;
-  padding: var(--sidebar-padding);
-  font-size:32px;
-  
-}
+} /* keyframes color-in */
 
-/* deprecated
 
-.stamp-spacer {
 
-animation-name:content-delay;
-animation-duration:2s;
 
-float: left;
-width: 140;
-border-color:rgba(0,0,0,0);  
-border-width:var(--spacer-width);
-border-style:solid;
-}
-
+/*
+** content-delay: This set of keyframes times the introduction of several text elements.
+** 
 */
 
-/* deprecated
-.border-fixer {
-float: left;
-width: 140;
-border-color:var(--para-border-color); 
-border-style: solid;
-border-width: var(--para-border-width) 0px 0px var(--para-border-width);
-} */
-
-.poststamp {
-
-animation-name:content-delay;
-animation-duration:2s;
-
-  float: left;
- 
-font-size:16px;
-border-style: solid;
-border-color: var(--para-border-color);
-color: var(--para-font-color);
-
-/* background-color: rgba(0,0,0,0); */
-padding: 2px;
-text-align:center;
-}
-
-.regpara {
-
-animation-name:content-delay;
-animation-duration:2s;
+#delay2secs { /* 2 second delay, fading in from 70% on.  Several html elements use this. */
+  animation-name:delay2;
+  animation-duration:2s;
+} /* delay2secs */
 
 
-z-index:5;
+.rose { /* rose, uniquely, uses delay2 at a different timing, so is included here. */
 
-margin-left: var(--sizebar-size);
-font-size: 26px;
-border-style: solid;
-border-color: var(--para-border-color);
-color: var(--para-font-color);
-/*background-color:var(--para-bg-color);*/
-background: linear-gradient(12deg,rgba(32,151,23,0.9),rgba(5,9,3,1),rgba(130,10,130,0.7),rgba(5,9,3,0.8),rgba(192,75,60,0.8));
+  position: fixed;
+  top:10%;
+  left:42%;
+  width: 40%;
+  
+  animation-name:content-delay;
+  animation-duration:500ms;
 
-padding:var(--para-padding);
-}
+  z-index:3;
 
-.smallpara {
-font-size: 22px;
-border-style: solid;
-border-color: var(--para-border-color);
-padding:var(--para-padding);
-}
+  opacity: 0.3;
 
-.main {
+} /* rose */
 
-position:relative;
-top:0;
-  margin-left: var(--sidebar-size); /* Same as the width of the sidenav */
-/*  font-size: 28px;  */ /* Increased text to enable scrolling */
-  padding: 0px 10px 0px 10px;
-  font-size: 28px;
- /* border-style:solid;
-  border-color:var(--banner-border-color); */
-}
+@keyframes delay2 {
+  0% {
+  opacity:0;
+  }
+  70% {
+  opacity:0;
+  }
+  100% {
+  opacity:1;
+  }
+} /* keyframes delay2 */
 
-#banner-main {  
 
-animation-name: content-delay;
-animation-duration: 2s;
 
-/* position: relative;
-  margin-left: var(--sidebar-size); */ /* Same as the width of the sidenav */
-/*  font-size: 28px;  */ /* Increased text to enable scrolling */
-
-  padding: 0px 10px 0px 10px;
-  font-size: 28px;
- /* border-style:solid;
-  border-color:var(--banner-border-color); */
-}
-
-@keyframes content-delay {
-0% {
-opacity:0;
-}
-70% {
-opacity:0;
-}
-100% {
-opacity:1;
-}
-}
-
+/*
+** frame-image: The only component that fades in at other than the from-70% rate of the
+** other things.  It's the picture of me that fades in over the nova spot.
+*/
 
 #frame-image {
 
-animation-name: img-delay;
-animation-duration: 4s;
+  position: relative;
+  width:150px;
 
-border-style:solid;
-border-color:var(--banner-border-color);
-border-radius:50%;
-position: relative;
-/*top:-100px;
-left:42%;*/
-text-align:center;
-width:150px;
-box-shadow: 0 0 15px 10px #99ffff;
-}
+  animation-name: img-delay;
+  animation-duration: 4s;
+
+  border-style:solid;
+  border-color:var(--banner-border-color);
+  border-radius:50%;
+
+  box-shadow: 0 0 15px 10px #99ffff;
+} /* frame-image */
 
 @keyframes img-delay {
   0% {
@@ -349,149 +385,138 @@ box-shadow: 0 0 15px 10px #99ffff;
   100% {
   opacity:1;
   }
- }
- 
-#nova-anim {
-  animation-name: nova;
-  animation-duration: 2s;
+} /* keyframes img-delay */
 
-position: relative;
-top:-100px;
-left:42%;
 
-z-index:2;
 
-  width:150px;
- /* background-color:#ffffff; */
-  border-radius:50%;
- /*  border-color: #ffffff; */
-  }
 
-@keyframes nova {
-  0% {
-opacity:0;
-  box-shadow: 0 0 20px 100px #ffffff;
- /* border-color: #000000; */
- background:#ffffff;
-  } 
-  10% {
-  opacity:0;
-  }
-  20% {
-  opacity:1;
-  background:#ffffff;
-  box-shadow: 0 0 5000px 500px #ffffff;
- 
-  }
-  25% {
-  opacity:1;
-  background:#ffffff;
-  }
-  85% {
-  opacity:0.3;
-  /*background:linear-gradient(180deg,black,orange);*/
-   background:linear-gradient(315deg,#f0138c,rgba(31,255,121,1)); 
-  }
-  
-  90% {
-  box-shadow: 0 0 150px 100px #ffffff;
- 
-  }
-  /*
-  98% {
-  width:1px;
-  box-shadow: 0 0 250px 200px #99ffff;
-  border-color: #000000;
-  }*/
-  99% {
-  
-  box-shadow: 0 0 15px 10px #ffffff;
- 
-  
-  }
-  100% {
-    
-    }
- }
 
 
 /*
-.frame-image:hover {
-transform: scale(1.2);
-}
+** Web Content / web content / WEB CONTENT
 */
 
-.rose {
 
-animation-name:content-delay;
-animation-duration:500ms;
+/*
+** sidebar: The list of links at the side. 
+*/	
+.sidebar {
 
-position: fixed;
-top:10%;
-left:42%;
-z-index:3;
+  position: fixed;
+  height: 100%;
+  width: var(--sidebar-size);
+  top: 0;
+  left: 0;
+  
+  z-index: 2;
 
-opacity: 0.3;
+  background: linear-gradient(45deg,#17020f,#1a0e05,#021c0d);
 
-width: 40%;
-text-align:center;
+  overflow-x: hidden;
+
+  
+} /* .sidebar */
+
+.smallpara { /* placed here because only sidebar uses it. */
+             /* It doesn't need an intro delay because sidebar has one. */
+  font-size: 22px;
+  border-style: solid;
+  border-color: var(--para-border-color);
+  padding:var(--para-padding);
+} /* smallpara */
+
+
+/* Link colors coded here because again only sidebar uses it. */
+
+a:visited {
+color: var(--link-visited);
+}
+
+a:link {
+color: var(--link-new);
 }
 
 
+/*
+** Main part begins here.  It's sort of in the name.
+*/
+.main {
 
-h1 {
-  line-height: 220%;
-  font-size:96px;
-  text-align:center;
+  position:relative;
+  top:0;
+  
+  margin-left: var(--sidebar-size); 
+  padding: 0px 10px 0px 10px;
+  font-size: 28px;
+
+} /* main */
+
+#banner-main {  /* These properties are common to banner1 and banner2 */
+
+  position: relative;
   font-family:Parisienne,cursive,arial,helvetica;
+  text-align:center;
+  
+  z-index:2;
+
+} /* #banner-main */
+
+.banner1 { /* My huge signature line at the top */
+
+  position: relative;
+  line-height: 220%;
+ 
+  font-size:96px;
+
   border-style: solid;
   border-color: var(--banner-border-color);
-  background-color:var(--banner-bg-color);
+  background:var(--banner-bg-color);
   color:var(--banner-font-color);
-  margin:5px 5px 5px 5px;
-} /* set for deprecation */
 
-.banner1 {
-position: relative;
+} /* .banner1 */
 
-  line-height: 220%;
-  font-size:96px;
-  text-align:center;
-  font-family:Parisienne,cursive,arial,helvetica;
-  border-style: solid;
-  border-color: var(--banner-border-color);
-  background-color:var(--banner-bg-color);
-  color:var(--banner-font-color);
-  margin:5px 5px 5px 5px;
- /* top:-550px;*/
-}
+.banner2 { /* The "mission statement" */
 
-.banner2 {
+  position: relative;
+  top:160px;
+  
   font-size:36px;
-  font-family:Parisienne,cursive,arial,helvetica;
+
   border-style: solid;
   border-color: var(--header-border-color);
-  background-color: var(--header-bg-color);
+  background: var(--header-bg-color);
   color: var(--header-font-color);
-  margin:2px;
- position: relative;
-  top:160px;
-  padding:5px;
-  }
+
+} /* .banner2 */
   
+
+/*
+** The HTML/CSS h? tags.  
+** 
+*/
+
+h1 { 
+ 
+  font-family:Parisienne,cursive,arial,helvetica;
+  border-style: solid;
+  border-color: var(--banner-border-color);
+  background-color:var(--banner-bg-color);
+  color:var(--banner-font-color);
+}
+
+
 h2 {
 
-  font-size:36px;
   font-family:Parisienne,cursive,arial,helvetica;
   border-style: solid;
   border-color: var(--header-border-color);
-  background-color: var(--header-bg-color);
+  background: var(--header-bg-color);
   color: var(--header-font-color);
-  margin:2px;
-  padding: 5px;
+
 }
 
-h3 {
+
+h3 { /* h3 is reserved for the sidebar */
   font-size: 18px;
   border-style: solid;
   border-color: coral;
@@ -503,4 +528,48 @@ p {
 text-align:justify;
 padding: var(--para-padding);
 }
+
+.thumbnail { /* Must be like a billboard or something */
+             /* No, it's thumbnails.  They should be in a regpara container... */
+  float: left;
+ 	      /* ^^ because of that.  If they're just out there naked they won't get */
+ 	      /* the container's z stacking priority. */
+ 	      
+  font-size:16px;
+  border-style: solid;
+  border-color: var(--para-border-color);
+  color: var(--para-font-color);
+
+  background: #6b0603;
+  
+  padding: 2px;
+  text-align:center;
+  
+} /* thumbnail */
+
+.regpara { /* This is meant to be a container block for the bulk of the writing, whatever */
+	   /* that may wind up consisting of. */
+
+  position: relative; 
+
+  z-index:5;
+
+  font-size: 26px;
+  border-style: solid;
+  border-color: var(--para-border-color);
+  color: var(--para-font-color);
+  background: linear-gradient(12deg,rgba(32,151,23,0.9),rgba(5,9,3,1),rgba(130,10,130,0.7),rgba(5,9,3,0.8),rgba(192,75,60,0.8));
+
+  padding:var(--para-padding);
+
+} /* regpara */
+
+
+
+
+
+
+
+
+
 
