@@ -10,6 +10,13 @@
 ** Large name banner (uses h1 tags )
 */	
 
+	--z-vortex:3;
+	--z-nova:6;
+	--z-general:5;
+	--z-colorin:4;
+	--z-rose:4;
+	--z-logo:10;
+	
 	--link-new:#cc2222;
 	--link-visited:#950b16;
 	
@@ -50,9 +57,17 @@
 ** Width of the Links sidebar/main elements.  Should be modified together and accordingly.
 */		 
 	 --sidebar-size: 25%;
-	 --main-size: 75%;
+	 --main-size: /* 75%; */ calc(100% - var(--sidebar-size));  
 	
-	}
+	 --logo-width: 150px;
+	 --logo-aspect: 0.75; /* 4:3 */
+	 --logo-height: calc( var(--logo-width) * var(--logo-aspect));
+	 
+	 --logo-half-width: calc(var(--logo-width)/2);
+	 --logo-x-offset: calc(50% - var(--logo-half-width));
+	 
+	 
+} /* :root */
 	
 /**
 ***
@@ -74,15 +89,20 @@
 
   animation-name: nova;
   animation-duration: 2s;
-
+  animation-fill-mode: forwards;
+  
   position: relative;
-  top:-100px;
-  left:42%;
+ 
+  left: var(--logo-x-offset);
 
-  z-index:2;
+  z-index:var(--z-nova);
 
-  width:150px;
-
+  
+  width: var(--logo-width);
+  height: var(--logo-height);
+  
+   border-style: solid;
+   border-color: #ffffff;
   border-radius:50%;
  
 } /* #nova-anim */
@@ -113,7 +133,7 @@
   box-shadow: 0 0 15px 10px #ffffff;
   }
   100% {
-  opacity:0;
+  opacity:1;
   }
 } /* keyframes nova-anim */
 
@@ -138,7 +158,7 @@
   animation-duration: 3s;
   animation-fill-mode: forwards; 
     	
-  z-index:0; 
+  z-index:var(--z-vortex); 
     		
 }
     		
@@ -160,9 +180,9 @@
 */	
 
 #color-rotate {
- 
+ /*
   z-index:1;  
-  
+  */
   position:fixed;
   top:0;
   right:0;
@@ -222,9 +242,9 @@
   position:fixed;
   top:0;
   right:0;
-    
+    /*
   z-index:1; 
-       
+      */ 
   width:var(--main-size);
   height:100%;
  
@@ -281,7 +301,7 @@
   top:0;
   left:0;
   
-  z-index:2;
+  z-index:var(--z-colorin);
   
   animation-name:color-in;
   animation-duration:4s;
@@ -335,7 +355,7 @@
   animation-name:content-delay;
   animation-duration:500ms;
 
-  z-index:3;
+  z-index:var(--z-rose);
 
   opacity: 0.3;
 
@@ -356,15 +376,19 @@
 
 
 /*
-** frame-image: The only component that fades in at other than the from-70% rate of the
+** logo: The only component that fades in at other than the from-70% rate of the
 ** other things.  It's the picture of me that fades in over the nova spot.
 */
 
-#frame-image {
+#logo {
 
+ 
   position: relative;
-  width:150px;
+  z-index: var(--z-logo); 
 
+
+  width:var(--logo-width);
+  height:var(--logo-height);
   animation-name: img-delay;
   animation-duration: 4s;
 
@@ -373,7 +397,7 @@
   border-radius:50%;
 
   box-shadow: 0 0 15px 10px #99ffff;
-} /* frame-image */
+} /* logo */
 
 @keyframes img-delay {
   0% {
@@ -408,7 +432,7 @@
   top: 0;
   left: 0;
   
-  z-index: 2;
+  z-index: var(--z-general);
 
   background: linear-gradient(45deg,#17020f,#1a0e05,#021c0d);
 
@@ -447,38 +471,53 @@ color: var(--link-new);
   
   margin-left: var(--sidebar-size); 
   padding: 0px 10px 0px 10px;
-  font-size: 28px;
+ /* font-size: 28px; */
 
 } /* main */
 
+
+/*
+** Container to stack the header elements vertically
+*/
+
+
+.header-box {
+  position: relative;
+  z-index:var(--z-general);
+  display: flex;
+  flex-flow: column; 
+  background:rgba(0,0,0,0);
+} /* header box */
+
+
 #banner-main {  /* These properties are common to banner1 and banner2 */
 
-  position: relative;
+  position: relative; 
   font-family:Parisienne,cursive,arial,helvetica;
   text-align:center;
-  
-  z-index:2;
+  z-index:var(--z-general);
 
 } /* #banner-main */
 
 .banner1 { /* My huge signature line at the top */
 
-  position: relative;
-  line-height: 220%;
- 
+  position: relative; 
+  line-height: 180%;
+
   font-size:96px;
 
   border-style: solid;
   border-color: var(--banner-border-color);
   background:var(--banner-bg-color);
   color:var(--banner-font-color);
-
+   z-index:var(--z-general);
+ 
 } /* .banner1 */
 
 .banner2 { /* The "mission statement" */
 
-  position: relative;
-  top:160px;
+  position: relative; 
+ /* top:160px; */
   
   font-size:36px;
 
@@ -486,6 +525,7 @@ color: var(--link-new);
   border-color: var(--header-border-color);
   background: var(--header-bg-color);
   color: var(--header-font-color);
+  z-index:var(--z-general);
 
 } /* .banner2 */
   
